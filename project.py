@@ -87,6 +87,12 @@ def deleteMenuItem(restaurant_id, menu_id):
 		return render_template('deleteMenuItem.html', restaurant_id = restaurant_id, menu_id = menu_id,i = deletedItem)
 
 # Making an API Endpoint (GET Request)
+@app.route('/restaurants/JSON')
+def restaurantJSON():
+	restaurants = session.query(Restaurant).all()
+	return jsonify( Restaurants=[ r.serialize for r in restaurants ] )
+
+
 @app.route('/restaurants/<int:restaurant_id>/menu/JSON')
 def restaurantMenuJSON(restaurant_id):
 	restaurant = session.query(Restaurant).filter_by(id = restaurant_id).one()
