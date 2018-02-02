@@ -92,7 +92,6 @@ def restaurantJSON():
 	restaurants = session.query(Restaurant).all()
 	return jsonify( Restaurants=[ r.serialize for r in restaurants ] )
 
-
 @app.route('/restaurants/<int:restaurant_id>/menu/JSON')
 def restaurantMenuJSON(restaurant_id):
 	restaurant = session.query(Restaurant).filter_by(id = restaurant_id).one()
@@ -109,5 +108,5 @@ def menuJSON(restaurant_id, menu_id):
 if __name__ == '__main__':
 	app.secret_key = 'super_secret_key'
 	app.debug = True
-	app.run(host='0.0.0.0', port=5000)
+	app.run(host='0.0.0.0', port=5678)
     # 0.0.0.0 allows for all the public ips
