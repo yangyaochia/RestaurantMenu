@@ -377,9 +377,10 @@ session.add(menuItem1)
 session.commit()
 
 
-print "added menu items!"
+'''print "added menu items!"
 
 items = session.query(MenuItem).all()
 for item in items:
        print item.name
+'''
 
