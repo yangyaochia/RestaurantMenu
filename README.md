@@ -28,4 +28,4 @@ POST
 3. To edit a specific menu : localhost:5678/menu/<m_id>/?name=<new_name>&description=<>&price=<>&course=<>
 
 DELETE
-1. Specific Menu: localhost:5678/menu/<m_id>
+1. Specific Menu: localhost:5678/menu/<m_id>/
