@@ -24,7 +24,7 @@ POST
 1. To modify the name of a specific restaurant : localhost:5678/restaurants?id=<r_id>&name=<new_name>
 2. To add a new item into a specific restaurant : 
           localhost:5678/restaurants/<r_id>/menu?name=<new_name>&description=<>&price=<>&course=<>
-   # name if mandatory for adding / other features are optional
+   (# name if mandatory for adding / other features are optional)
 3. To edit a specific menu : localhost:5678/menu/<m_id>/?name=<new_name>&description=<>&price=<>&course=<>
 
 DELETE
