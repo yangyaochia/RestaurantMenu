@@ -16,16 +16,16 @@ b1. execute endPoints.py to load up the server on your localhost
 b2. use cURL/POSTMAN to send corresponding request
 
 GET
-1. List of restaurants : localhost:5678/restaurants/
-2. Menu in a specific restaurant : localhost:5678/restaurants/<r_id>/menu
-3. Specific menu : localhost:5678/menu/<m_id>
+1. List of restaurants : hostname/restaurants/
+2. Menu in a specific restaurant : hostname/restaurants/<r_id>/menu
+3. Specific menu : hostname/menu/<m_id>
 
 POST
-1. To modify the name of a specific restaurant : localhost:5678/restaurants?id=<r_id>&name=<new_name>
+1. To modify the name of a specific restaurant : hostname/restaurants?id=<r_id>&name=<new_name>
 2. To add a new item into a specific restaurant : 
-          localhost:5678/restaurants/<r_id>/menu?name=<new_name>&description=<>&price=<>&course=<>
+          hostname/restaurants/<r_id>/menu?name=<new_name>&description=<>&price=<>&course=<>
    (# name if mandatory for adding / other features are optional)
-3. To edit a specific menu : localhost:5678/menu/<m_id>/?name=<new_name>&description=<>&price=<>&course=<>
+3. To edit a specific menu : hostname/menu/<m_id>/?name=<new_name>&description=<>&price=<>&course=<>
 
 DELETE
-1. Specific Menu: localhost:5678/menu/<m_id>/
+1. Specific Menu: hostname/menu/<m_id>/
