@@ -1,0 +1,47 @@
+1. Step One— Install and Enable mod_wsgi
+    -> install mod_wsgi: sudo apt-get install libapache2-mod-wsgi python-dev
+    -> enable mod_wsgi: sudo a2enmod wsgi 
+2. Step Two - Create the FlaskApp
+3. Step Three - Install Flask
+    -> install/update pip: sudo apt-get install python-pip 
+    -> install virtualenv: sudo pip install virtualenv 
+    -> activating the virtual environment: source venv/bin/activate 
+    -> install flask: sudo pip install Flask 
+    -> run __init__.py : sudo python __init__.py 
+4. Step Four – Configure and Enable a New Virtual Host
+    -> sudo nano /etc/apache2/sites-available/FlaskApp.conf
+    -> configure as followed:
+      <VirtualHost *:80>
+		    ServerName mywebsite.com
+		      ServerAdmin admin@mywebsite.com
+		      WSGIScriptAlias / /var/www/FlaskApp/flaskapp.wsgi
+		      <Directory /var/www/FlaskApp/FlaskApp/>
+			      Order allow,deny
+			      Allow from all
+		      </Directory>
+		      Alias /static /var/www/FlaskApp/FlaskApp/static
+		      <Directory /var/www/FlaskApp/FlaskApp/static/>
+			      Order allow,deny
+			      Allow from all
+		      </Directory>
+		    ErrorLog ${APACHE_LOG_DIR}/error.log
+		    LogLevel warn
+		    CustomLog ${APACHE_LOG_DIR}/access.log combined
+      </VirtualHost>
+    -> enable virtual host: sudo a2ensite FlaskApp
+
+5. Step Five – Create the .wsgi File
+    -> cd /var/www/FlaskApp
+    -> sudo nano flaskapp.wsgi 
+    -> add following lines
+          #!/usr/bin/python
+          import sys
+          import logging
+          logging.basicConfig(stream=sys.stderr)
+          sys.path.insert(0,"/var/www/FlaskApp/")
+
+          from FlaskApp import app as application
+          application.secret_key = 'super_key'
+6. Step Six - Restart Apache2
+    -> sudo service apache2 restart 
+    -> and you will be able to access your virtual host without any further issues. 
