@@ -61,4 +61,14 @@
           application.secret_key = 'super_key'
 6. Step Six - Restart Apache2
     -> sudo service apache2 restart 
-    -> and you will be able to access your virtual host without any further issues. 
+    -> and you will be able to access your virtual host without any further issues.
+    -> use cURL/POSTMAN/browser to test the CRUD functionality
+    -> if there are issues getting the result, try the command below to see the root cause
+       sudo tail /var/log/apache2/error.log
+    
+7. Step Seven - Verification
+    - need to verify whether your mod_wsgi indeed use the correct venv python
+    - execute "pip list" on terminal 
+    	to List installed packages under normal environment and virtual environment
+    - if finding out flask package in normal environment, you should uninstall with "pip uninstall flask"
+    - mod_wsgi should be working only with venv python now
