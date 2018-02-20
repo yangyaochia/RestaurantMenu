@@ -22,8 +22,8 @@
     -> sudo nano /etc/apache2/sites-available/APIApp.conf
     -> configure as followed:
       <VirtualHost *:80>
-		    ServerName server.kennyschumacher.com
-		      ServerAdmin root@server.kennyschumacher.com
+		    ServerName server.yangyaochia.com
+		      ServerAdmin root@server.yangyaochia.com
 		      WSGIScriptAlias / /var/www/APIApp/apiapp.wsgi
 		      <Directory /var/www/APIApp/APIApp/>
 			      Order allow,deny
